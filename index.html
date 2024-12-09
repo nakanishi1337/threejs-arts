@@ -1,52 +1,43 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js"
-        }
-      }
-    </script>
-    <script type="module">
-      import * as THREE from "three";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Three.js Art Gallery</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header>
+        <h1>My Three.js Art Gallery</h1>
+        <p>Explore my collection of interactive 3D artworks.</p>
+    </header>
 
-      // サイズを指定
-      const width = 960;
-      const height = 540;
+    <main>
+        <section class="gallery">
+            <!-- Art 1 -->
+            <div class="art-item">
+                <a href="artworks/art1/index.html">
+                    <img src="artworks/art1/thumbnail.png" alt="Art 1 Thumbnail">
+                    <h2>Art 1</h2>
+                </a>
+                <p>A description of Art 1.</p>
+            </div>
 
-      // レンダラーを作成
-      const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector("#myCanvas"),
-      });
-      renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(width, height);
+            <!-- Art 2 -->
+            <div class="art-item">
+                <a href="artworks/art2/index.html">
+                    <img src="assets/images/art2-thumbnail.png" alt="Art 2 Thumbnail">
+                    <h2>Art 2</h2>
+                </a>
+                <p>A description of Art 2.</p>
+            </div>
 
-      // シーンを作成
-      const scene = new THREE.Scene();
+            <!-- Add more artworks here -->
+        </section>
+    </main>
 
-      // カメラを作成
-      const camera = new THREE.PerspectiveCamera(45, width / height);
-      camera.position.set(0, 0, +1000);
-
-      // 箱を作成
-      const geometry = new THREE.BoxGeometry(400, 400, 400);
-      const material = new THREE.MeshNormalMaterial();
-      const box = new THREE.Mesh(geometry, material);
-      scene.add(box);
-
-      tick();
-
-      // 毎フレーム時に実行されるループイベントです
-      function tick() {
-        box.rotation.y += 0.01;
-        renderer.render(scene, camera); // レンダリング
-
-        requestAnimationFrame(tick);
-      }
-    </script>
-  </head>
-  <body>
-    <canvas id="myCanvas"></canvas>
-  </body>
+    <footer>
+        <p>&copy; 2024 My Three.js Art Gallery. All rights reserved.</p>
+    </footer>
+</body>
 </html>
